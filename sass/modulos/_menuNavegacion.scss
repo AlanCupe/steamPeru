@@ -1,6 +1,10 @@
 
 #main{
-margin-top: 100px;  
+margin-top: 60px;  
+#titulo{
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 58%, rgba(0,212,255,1) 66%, rgba(9,9,121,1) 73%);
+}
 .styleGame{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%),0.25fr));
