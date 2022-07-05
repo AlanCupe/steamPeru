@@ -44,7 +44,7 @@ const juego10 = new juego(34, "Smite", 5, "MOBA");
 moba.push(juego6, juego7, juego8, juego9, juego10);
 
 const juego11 = new juego(32, "Apex Legends", 1, "AVENTURA");
-const juego12 = new juego(145, "Lottus arc", 2, "AVENTURA");
+const juego12 = new juego(145, "Destiny 2", 2, "AVENTURA");
 const juego13 = new juego(36, "Raft", 3, "AVENTURA");
 const juego14 = new juego(130, "God of war", 4, "AVENTURA");
 const juego15 = new juego(20, "Forza horizon 5", 5, "AVENTURA");
@@ -66,3 +66,7 @@ catalogo('smite', juego10 )
 //aventura
 
 catalogo('apexLegends', juego11)
+catalogo('destiny2', juego12)
+catalogo('raft', juego13)
+catalogo('godofWar', juego14)
+catalogo('forzaHorizon', juego15)

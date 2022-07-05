@@ -5,6 +5,14 @@
   background: rgb(2, 0, 36);
   background: linear-gradient(90deg, rgb(2, 0, 36) 58%, rgb(0, 212, 255) 66%, rgb(9, 9, 121) 73%);
 }
+#main .categoria {
+  font-weight: bolder;
+  color: rgb(12, 185, 128);
+  text-align: center;
+  width: 100%;
+  background: rgb(6, 5, 23);
+  background: linear-gradient(90deg, rgb(6, 5, 23) 58%, rgb(11, 230, 31) 66%, rgb(9, 9, 121) 72%);
+}
 #main .styleGame {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 0.25fr));

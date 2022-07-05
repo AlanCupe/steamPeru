@@ -5,6 +5,14 @@ margin-top: 60px;
     background: rgb(2,0,36);
 background: linear-gradient(90deg, rgba(2,0,36,1) 58%, rgba(0,212,255,1) 66%, rgba(9,9,121,1) 73%);
 }
+.categoria{
+    font-weight: bolder;
+    color: rgb(12, 185, 128);
+    text-align: center;
+    width: 100%;
+    background: rgb(6,5,23);
+    background: linear-gradient(90deg, rgba(6,5,23,1) 58%, rgba(11,230,31,1) 66%, rgba(9,9,121,1) 72%); 
+}
 .styleGame{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%),0.25fr));
