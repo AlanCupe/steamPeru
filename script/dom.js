@@ -51,15 +51,15 @@ const juego15 = new juego(20, "Forza horizon 5", 5, "AVENTURA");
 //PUSHEANDO A SU ARREGLO RESPECTIVO
 aventura.push(juego11, juego12, juego13, juego14, juego15);
 
+function catalogoMoba(id, objeto){
+    let nuevoJuego = document.getElementById(id)
+    nuevoJuego.innerHTML = objeto.nombreJuego
+}
 
 
-let dota2 = document.getElementById('dota2')
-dota2.innerHTML = juego6.nombreJuego;
-let leagueLeguends = document.getElementById('leagueofLeguends')
-leagueLeguends.innerHTML = juego7.nombreJuego;
-let paladins = document.getElementById('paladins')
-paladins.innerHTML = juego8.nombreJuego;
-let lordsMobile = document.getElementById('lordsMobile')
-lordsMobile.innerHTML = juego9.nombreJuego;
-let smite = document.getElementById('smite')
-smite.innerHTML = juego10.nombreJuego;
+catalogoMoba('dota2', juego6 );
+catalogoMoba('leagueofLeguend', juego7 );
+catalogoMoba('paladins', juego8 );
+catalogoMoba('lordsMobile', juego9 );
+catalogoMoba('smite', juego10 );
+
