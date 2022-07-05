@@ -1,1 +1,42 @@
-/*# sourceMappingURL=main.css.map */
+#main {
+  margin-top: 100px;
+}
+#main .styleGame {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 0.25fr));
+  grid-auto-rows: 20rem;
+  justify-content: center;
+  gap: 20px;
+  padding: 50px;
+}
+#main .cardJuego {
+  background: black;
+  max-width: 500px;
+  box-shadow: 0px 0px 5px black;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+#main .cardJuego__img {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  width: 100%;
+  object-fit: cover;
+}
+#main .cardJuego__btnComprar {
+  width: 100%;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 10px;
+  color: #0F63DE;
+  font-weight: bolder;
+  text-transform: uppercase;
+  background: black;
+  border: 1px solid #0F63DE;
+}
+#main .cardJuego__titulo {
+  color: #0F63DE;
+  font-weight: bolder;
+}/*# sourceMappingURL=main.css.map */
