@@ -57,7 +57,7 @@ aventura.push(juego11, juego12, juego13, juego14, juego15);
 function crearJuego(idCategoria,arreglo){
   
   for (let i of arreglo) {
-    let crearJuego = document.getElementById(idCategoria);
+    
     const juegosM = document.createElement('article');
     juegosM.classList.add('cardsJuegos')
     juegosM.innerHTML=`<div class="cardJuego">
@@ -66,8 +66,21 @@ function crearJuego(idCategoria,arreglo){
     <p class="text-success fw-bold">Precio: S/${i.precio}</p> 
     <a href="pages/productos.html" id="${i.idProducto}" class="cardJuego__btnComprar">Comprar</a>
     </div>`
+    let crearJuego = document.getElementById(idCategoria);
     crearJuego.append(juegosM);
+
+    let button = document.getElementById(`${i.idProducto}`);
+   button.addEventListener('mouseover',()=>{
+    button.style.background='green'
+   })
+   button.addEventListener('mouseout',()=>{
+    button.style.background='black'
+   })
+      
+      
     
+
+
   }
   
 }
@@ -75,33 +88,16 @@ crearJuego('juegosMoba',moba)
 crearJuego('juegosAventura',aventura)
 crearJuego('juegosAccion', accion)
 
-
-
-
-
-
-const compra = document.getElementById('dota2');
- compra.addEventListener('click', ()=>{
-  let idproducto = document.getElementById('productos');
-  idproducto.innerHTML =`<article id="producto">
-            <div class="card mb-3" style="max-width: 940px;">
-                <div class="row g-0">
-                  <div class="col-md-8">
-                    <img src="../assets/img/moba/dota2.jpg" class="img-fluid rounded-start" alt="">
-                  </div>
-                  <div class="col-md-4">
-                    <div class="card-body">
-                      <h5 class="card-title fw-bold text-primary">Card title</h5>
-                      <p class="card-text">Nombre:</p>
-                      <p class="card-text">Precio:</p>
-                      <p class="card-text">Descripción:</p>
-                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-        </article>` 
+button.addEventListener('mouseover', ()=>{
+  
+   
 }
+
 )
+
+
+
+
+
 
 
