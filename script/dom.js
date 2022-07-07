@@ -56,8 +56,8 @@ aventura.push(juego11, juego12, juego13, juego14, juego15);
 
 function crearJuego(idCategoria,arreglo){
   
-  for (i of arreglo) {
-    const crearJuego = document.getElementById(idCategoria);
+  for (let i of arreglo) {
+    let crearJuego = document.getElementById(idCategoria);
     const juegosM = document.createElement('article');
     juegosM.classList.add('cardsJuegos')
     juegosM.innerHTML=`<div class="cardJuego">
