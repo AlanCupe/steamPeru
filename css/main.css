@@ -56,6 +56,24 @@
   font-weight: bolder;
 }
 
+.sticky {
+  margin-bottom: 20px;
+}
+.sticky img {
+  position: sticky;
+  height: 40px;
+  margin: 8px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 0.25fr));
+  grid-auto-rows: auto;
+  justify-content: center;
+  gap: 15px;
+  padding: 50px;
+}
+
 #producto {
   display: flex;
   flex-flow: column wrap;

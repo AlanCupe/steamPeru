@@ -64,7 +64,7 @@ function crearJuego(idCategoria,arreglo){
     <img class="cardJuego__img" src="${i.img}" alt="${i.nombreJuego}">
     <h3 class="cardJuego__titulo">${i.nombreJuego}</h3>
     <p class="text-success fw-bold">Precio: S/${i.precio}</p> 
-    <a href="pages/productos.html" id="${i.idProducto}" class="cardJuego__btnComprar">Comprar</a>
+    <button  id="${i.idProducto}" class="cardJuego__btnComprar">Comprar</button>
     </div>`
     let crearJuego = document.getElementById(idCategoria);
     crearJuego.append(juegosM);
@@ -76,8 +76,36 @@ function crearJuego(idCategoria,arreglo){
    button.addEventListener('mouseout',()=>{
     button.style.background='black'
    })
-      
-      
+    let verCarrito = document.getElementById('verCarrito')
+   window.addEventListener('load', ()=>{
+        button.addEventListener('click', ()=>{
+          let seleccionado ={
+            nombre:`${i.nombreJuego}`,
+            precio:`${i.precio}`,
+            img:`${i.img}`,
+            id:`${i.idProducto}`
+          };
+          localStorage.setItem(`${i.nombreJuego}`, JSON.stringify(seleccionado))
+        })
+        verCarrito.addEventListener('click', ()=>{
+          let obtenerGame = JSON.parse(localStorage.getItem(`${i.nombreJuego}`))
+          console.log(obtenerGame);
+          
+          let juegosC = document.createElement('article');
+
+    juegosC.classList.add('cardsJuegos')
+    juegosC.innerHTML=`<div class="cardJuego">
+    <img class="cardJuego__img" src="${obtenerGame.img}" alt="${obtenerGame.nombre}">
+    <h3 class="cardJuego__titulo">${obtenerGame.nombre}</h3>
+    <p class="text-success fw-bold">Precio: S/${obtenerGame.precio}</p> 
+    
+    </div>`
+          let carritoContenedor = document.getElementById('carritoContenedor');
+          carritoContenedor.append(juegosC);
+        })
+        
+
+  })
     
 
 
@@ -88,12 +116,7 @@ crearJuego('juegosMoba',moba)
 crearJuego('juegosAventura',aventura)
 crearJuego('juegosAccion', accion)
 
-button.addEventListener('mouseover', ()=>{
-  
-   
-}
 
-)
 
 
 

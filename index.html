@@ -19,7 +19,9 @@
     />
   </head>
   <body>
+    
     <div id="page">
+      
       <header>
         <nav>
           <nav class="navbar navbar-expand-lg bg-dark fixed-top">
@@ -116,6 +118,7 @@
                     <button class="btn btn-outline-primary" type="submit">
                       Search
                     </button>
+                    
                   </form>
                 </div>
               </div>
@@ -129,21 +132,71 @@
         </h1>
         <section class="juegosAll">
           <h2 class="categoria">Categoría: Moba</h2>
-          <section id="juegosMoba" class="styleGame">
-
-          </section>
+          <section id="juegosMoba" class="styleGame"></section>
 
           <h2 class="categoria">Categoría: Aventura</h2>
-          <section  id="juegosAventura" class="styleGame">
-
-          </section>
+          <section id="juegosAventura" class="styleGame"></section>
           <h2 class="categoria">Categoría: Acción</h2>
-          <section id="juegosAccion" class="styleGame">
-            
-          </section>
+          <section id="juegosAccion" class="styleGame"></section>
         </section>
+        <div class="modalCarrito d-flex justify-content-center">
+          <!-- Scrollable modal -->
+          <!-- Button trigger modal -->
+          <button
+            type="button"
+            class="btn btn-white sticky sticky-top"
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
+            id="verCarrito"
+          >
+            <img src="assets/img/carrito.png" alt="carrito de compras" />
+          </button>
+  
+          <!-- Modal-->
+          <div
+            class="modal fade bd-example-modal-lg"
+            id="staticBackdrop"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+            tabindex="-1"
+            aria-labelledby="staticBackdropLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">
+                    Productos seleccionados
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body" id="carritoContenedor" class="grid">
+                  
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button type="button" class="btn btn-primary">
+                    Understood
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
     </div>
+    
     <script src="script/dom.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
