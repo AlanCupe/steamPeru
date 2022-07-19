@@ -130,20 +130,25 @@ const juego15 = new juego(
 //PUSHEANDO A SU ARREGLO RESPECTIVO
 juegoAlmacenado.push(juego11, juego12, juego13, juego14, juego15);
 
-
+console.log(typeof localStorage.getItem('carro'))
 
     //obtengo los ids de los contenedores para poder usarlos luego
     const categoriaMoba = document.getElementById('juegosMoba');
     const categoriaAccion = document.getElementById('juegosAccion');
     const categoriaAventura = document.getElementById('juegosAventura');
     const precioTotal = document.getElementById('precioTotal');
+    
     document.addEventListener('DOMContentLoaded',()=>{
-        if(localStorage.getItem('carro')){
-            carro = JSON.parse(localStorage.getItem('carro'));
-        actualizarCarrito();
-        }
-        
+        // if(localStorage.getItem('carro')){
+        //     carro = JSON.parse(localStorage.getItem('carro'));
+        // actualizarCarrito();
+        // }
+        typeof localStorage.getItem('carro')=='string' ?traerLocalStorage()  : null
     })
+    const traerLocalStorage= ()=>{
+      carro=JSON.parse(localStorage.getItem('carro')); 
+      actualizarCarrito()
+    }
     
 //reccore mi array de juegos Almacenados y por cada iteracion va a crearme  una card con las propiedades de cada 1 de ellos. Luego cada card creada la adjunto a su respectiva seccion dependiendo su categoria o genero.
    juegoAlmacenado.map((producto) =>{
@@ -157,19 +162,22 @@ juegoAlmacenado.push(juego11, juego12, juego13, juego14, juego15);
     <button  id="${producto.idProducto}" class="cardJuego__btnAgregar">Agregar</button>
     </div>`
     let categoria = producto.genero;
-    switch (categoria) {
-        case 'MOBA':
-            categoriaMoba.prepend(article);
-            break;
-        case 'AVENTURA':
-            categoriaAventura.prepend(article);
-            break;
-        case 'ACCION':
-            categoriaAccion.prepend(article);
-            break;        
-        default:
-            break;
-    }
+    categoria =='MOBA' && categoriaMoba.prepend(article);
+    categoria =='AVENTURA' && categoriaAventura.prepend(article);
+    categoria =='ACCION' && categoriaAccion.prepend(article);
+    // switch (categoria) {
+    //     case 'MOBA':
+    //         categoriaMoba.prepend(article);
+    //         break;
+    //     case 'AVENTURA':
+    //         categoriaAventura.prepend(article);
+    //         break;
+    //     case 'ACCION':
+    //         categoriaAccion.prepend(article);
+    //         break;        
+    //     default:
+    //         break;
+    // }
     //Asigno a cada  button de la card  un respectivo evento click    la cual va a llamar a la funcion agregarCarrito (). Esta funcion pedira por parametro el id que luego usaremos.
     const btn = document.getElementById(producto.idProducto)
     btn.addEventListener('click', ()=>{
