@@ -38,7 +38,7 @@
   height: 300px;
   object-fit: cover;
 }
-#main .cardJuego__btnComprar {
+#main .cardJuego__btnAgregar {
   text-decoration: none;
   text-align: center;
   width: 100%;
@@ -56,22 +56,18 @@
   font-weight: bolder;
 }
 
-.sticky {
-  margin-bottom: 20px;
+#verCarrito {
+  width: 200px;
+  display: flex;
+  flex-flow: row-reverse wrap;
+  height: 50px;
+  margin-top: -3px;
+  color: greenyellow;
+  font-weight: bold;
+  font-size: 2rem;
 }
-.sticky img {
-  position: sticky;
-  height: 40px;
-  margin: 8px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 0.25fr));
-  grid-auto-rows: auto;
-  justify-content: center;
-  gap: 15px;
-  padding: 50px;
+#verCarrito img {
+  width: 50px;
 }
 
 #producto {

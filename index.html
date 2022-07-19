@@ -110,15 +110,26 @@
                     </li>
                   </ul>
                   <form class="d-flex" role="search">
+                    <!-- Button trigger modal -->
+          <button
+          type="button"
+          class="me-5  btn btn-white"
+          data-bs-toggle="modal"
+          data-bs-target="#staticBackdrop"
+          id="verCarrito"
+        >
+          <span id="contador">0</span>
+          <img src="assets/img/carrito.png" alt="carrito de compras" />
+          </button> 
+
                     <input
                       class="form-control me-2"
                       type="search"
                       placeholder="Search"
                       aria-label="Search"
                     />
-                    <button class="btn btn-outline-primary" type="submit">
-                      Search
-                    </button>
+                    
+        <button class="bg-primary rounded" type="submit">Enviar</button>
                     
                   </form>
                 </div>
@@ -140,18 +151,17 @@
           <h2 class="categoria">Categoría: Acción</h2>
           <section id="juegosAccion" class="styleGame"></section>
         </section>
-        <div class="modalCarrito d-flex justify-content-center">
+
+
+
+
+
+        
+
+
+
           <!-- Scrollable modal -->
-          <!-- Button trigger modal -->
-          <button
-            type="button"
-            class="btn btn-white sticky sticky-top"
-            data-bs-toggle="modal"
-            data-bs-target="#staticBackdrop"
-            id="verCarrito"
-          >
-            <img src="assets/img/carrito.png" alt="carrito de compras" />
-          </button>
+          
   
           <!-- Modal-->
           <div
@@ -177,11 +187,25 @@
                   ></button>
                 </div>
                 <div class="modal-body">
-                  <section class="styleGame"  id="carritoContenedor">
-                    
+                  <section>
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Producto</th>
+                          <th scope="col">Cantidad</th>
+                          <th scope="col">Precio</th>
+                          <th scope="col">Acción</th>
+                        </tr>
+                      </thead>
+                      <tbody  id="carritoContenedor">
+                       
+                      </tbody>
+                    </table>
                   </section>
                 </div>
                 <div class="modal-footer">
+                  <p class="precioTotal fw-bold fs-5">Precio Total: <span id="precioTotal">0</span></p>
                   <button
                     id="close"
                     type="button"
@@ -190,18 +214,18 @@
                   >
                     Close
                   </button>
-                  <button type="button" class="btn btn-primary">
-                    Understood
+                  <button type="button" class="btn btn-primary" id="vaciarCarrito">
+                    Vaciar Carrito
                   </button>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        
       </main>
     </div>
     
-    <script src="script/dom.js"></script>
+    <script src="script/carro2.0.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
       integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"

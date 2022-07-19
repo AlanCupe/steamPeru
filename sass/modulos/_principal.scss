@@ -40,7 +40,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 58%, rgba(0,212,255,1) 66%, rg
     height: 300px;
 object-fit: cover;
 }
-&__btnComprar{
+&__btnAgregar{
     text-decoration: none;
     text-align: center;
     width: 100%;
@@ -61,21 +61,23 @@ object-fit: cover;
 
 
 }
-.sticky {
-    margin-bottom: 20px;
-       img{
-    position: sticky;
-        height: 40px;
-        margin: 8px;
+
+#verCarrito{
+    width: 200px;
+    display: flex;
+    flex-flow: row-reverse wrap;
+
+    height: 50px;
+    margin-top: -3px;
+    color: greenyellow ;
+    font-weight: bold;
+    font-size: 2rem;
+    img{
+        width: 50px;
+        
+        
     }
 }
-.grid{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%),0.25fr));
-    grid-auto-rows: auto;
-    
-    justify-content: center;
-    gap: 15px;
-    padding: 50px;
-}
+
+
 
