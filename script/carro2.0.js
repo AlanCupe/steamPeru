@@ -139,10 +139,14 @@ console.log(typeof localStorage.getItem('carro'))
     const precioTotal = document.getElementById('precioTotal');
     
     document.addEventListener('DOMContentLoaded',()=>{
-        // if(localStorage.getItem('carro')){
-        //     carro = JSON.parse(localStorage.getItem('carro'));
-        // actualizarCarrito();
-        // }
+      const nombreUser = document.getElementById('name').value;
+      const password = document.getElementById('password');
+      
+      localStorage.setItem('usuario',nombreUser);
+      
+    
+
+
         typeof localStorage.getItem('carro')=='string' ?traerLocalStorage()  : null
     })
     const traerLocalStorage= ()=>{
@@ -154,6 +158,10 @@ console.log(typeof localStorage.getItem('carro'))
    juegoAlmacenado.map((producto) =>{
     const article = document.createElement('article');
     article.classList.add('juego')
+    article.setAttribute("data-aos","fade-down")
+    article.setAttribute("data-aos-easing","linear")
+    article.setAttribute("data-aos-duration","700")
+    
     article.innerHTML = ` <div class="cardJuego">
     <img class="cardJuego__img" src="${producto.img}" alt="${producto.nombreJuego}">
     <h3 class="cardJuego__titulo">${producto.nombreJuego}</h3>
@@ -205,6 +213,12 @@ console.log(typeof localStorage.getItem('carro'))
         const item = juegoAlmacenado.find(juego=>juego.idProducto === id )
         carro.push(item);
          }
+         swal({
+          title: "Producto Agregado!",
+          text: "En buena hora!",
+          icon: "success",
+          button: "Aceptar!",
+        });
         //cada vez que se haga click en agregar  tambien se ejecutara la funcion actualizar carrito.
         actualizarCarrito();
       
@@ -274,5 +288,8 @@ vaciarCarrito.addEventListener('click',()=>{
        contador.innerText = carro.length;
        precioTotal.innerText = 'S/ '+carro.reduce((acumulador,producto)=>acumulador + producto.precio, 0)
 }
+
+
+
 
 
