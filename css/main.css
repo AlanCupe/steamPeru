@@ -1,18 +1,25 @@
+.navbar {
+  background: rgb(12, 68, 129);
+  background: linear-gradient(90deg, rgb(12, 68, 129) 43%, rgb(6, 5, 23) 89%);
+}
+
 #main {
   box-sizing: border-box;
   margin-top: 60px;
+  background: rgb(6, 5, 23);
+  background: linear-gradient(90deg, rgb(6, 5, 23) 45%, rgb(9, 9, 121) 100%);
 }
 #main #titulo {
-  background: rgb(2, 0, 36);
-  background: linear-gradient(90deg, rgb(2, 0, 36) 58%, rgb(0, 212, 255) 66%, rgb(9, 9, 121) 73%);
+  background: rgb(17, 99, 192);
+  background: linear-gradient(90deg, rgb(17, 99, 192) 6%, rgb(0, 1, 6) 53%, rgb(12, 68, 129) 88%);
 }
 #main .categoria {
   font-weight: bolder;
   color: rgb(12, 185, 128);
   text-align: center;
   width: 100%;
-  background: rgb(6, 5, 23);
-  background: linear-gradient(90deg, rgb(6, 5, 23) 58%, rgb(11, 230, 31) 66%, rgb(9, 9, 121) 72%);
+  background: rgb(12, 68, 129);
+  background: linear-gradient(90deg, rgb(12, 68, 129) 43%, rgb(6, 5, 23) 89%);
 }
 #main .styleGame {
   display: grid;
@@ -23,7 +30,8 @@
   padding: 50px;
 }
 #main .cardJuego {
-  background: black;
+  background: rgb(12, 68, 129);
+  background: linear-gradient(90deg, rgb(12, 68, 129) 43%, rgb(6, 5, 23) 89%);
   box-shadow: 0px 0px 5px black;
   display: flex;
   flex-flow: column wrap;
@@ -83,7 +91,7 @@
   justify-content: center;
   align-items: center;
   background: rgb(6, 5, 23);
-  background: linear-gradient(90deg, rgb(6, 5, 23) 58%, rgb(11, 230, 31) 66%, rgb(9, 9, 121) 72%);
+  background: linear-gradient(90deg, rgb(6, 5, 23) 45%, rgb(9, 9, 121) 100%);
   height: 100vh;
 }
 .loginMain .containerLogin {

@@ -2,7 +2,7 @@ const accion = [];
 const aventura = [];
 const moba = [];
 let carro = [];
-const juegoAlmacenado = [];
+let juegoAlmacenado = [];
 
 
 //CREACION DE LA CLASE JUEGO
@@ -63,7 +63,7 @@ const juego5 = new juego(
   "assets/img/accion/lostArk.webp",100
 );
 //PUSHEANDO A SU ARREGLO RESPECTIVO
-juegoAlmacenado.push(juego1, juego2, juego3, juego4, juego5);
+accion.push(juego1, juego2, juego3, juego4, juego5);
 
 const juego6 = new juego( 30,"Dota 2","dota2","MOBA","assets/img/moba/dota2.jpg",100);
 const juego7 = new juego(15,"League of legends","league","MOBA","assets/img/moba/leagueOfLeguends.jpg",100
@@ -90,7 +90,7 @@ const juego10 = new juego(
   "assets/img/moba/smite.jpg",100
 );
 //PUSHEANDO A SU ARREGLO RESPECTIVO
-juegoAlmacenado.push(juego6, juego7, juego8, juego9, juego10);
+moba.push(juego6, juego7, juego8, juego9, juego10);
 
 const juego11 = new juego(
   32,
@@ -128,7 +128,9 @@ const juego15 = new juego(
   "assets/img/aventura/forzaHorizon.jpg",100
 );
 //PUSHEANDO A SU ARREGLO RESPECTIVO
-juegoAlmacenado.push(juego11, juego12, juego13, juego14, juego15);
+aventura.push(juego11, juego12, juego13, juego14, juego15);
+
+juegoAlmacenado = [...accion, ...moba, ...aventura];
 
 console.log(typeof localStorage.getItem('carro'))
 
@@ -139,15 +141,12 @@ console.log(typeof localStorage.getItem('carro'))
     const precioTotal = document.getElementById('precioTotal');
     
     document.addEventListener('DOMContentLoaded',()=>{
-      const nombreUser = document.getElementById('name').value;
-      const password = document.getElementById('password');
-      
-      localStorage.setItem('usuario',nombreUser);
+     
       
     
 
 
-        typeof localStorage.getItem('carro')=='string' ?traerLocalStorage()  : null
+        typeof localStorage.getItem('carro')=='string' ?traerLocalStorage()  : console.log('No se pudo traer el LocalStorage')
     })
     const traerLocalStorage= ()=>{
       carro=JSON.parse(localStorage.getItem('carro')); 
@@ -156,36 +155,26 @@ console.log(typeof localStorage.getItem('carro'))
     
 //reccore mi array de juegos Almacenados y por cada iteracion va a crearme  una card con las propiedades de cada 1 de ellos. Luego cada card creada la adjunto a su respectiva seccion dependiendo su categoria o genero.
    juegoAlmacenado.map((producto) =>{
+
     const article = document.createElement('article');
     article.classList.add('juego')
     article.setAttribute("data-aos","fade-down")
     article.setAttribute("data-aos-easing","linear")
     article.setAttribute("data-aos-duration","700")
     
+    const {precio,nombreJuego,idProducto, genero, img, stock}=producto
     article.innerHTML = ` <div class="cardJuego">
-    <img class="cardJuego__img" src="${producto.img}" alt="${producto.nombreJuego}">
-    <h3 class="cardJuego__titulo">${producto.nombreJuego}</h3>
-    <p class="text-success fw-bold">Precio: S/${producto.precio}</p> 
-    <p class="text-success fw-bold">Stock:${producto.stock}</p> 
-    <button  id="${producto.idProducto}" class="cardJuego__btnAgregar">Agregar</button>
+    <img class="cardJuego__img" src="${img}" alt="${nombreJuego}">
+    <h3 class="cardJuego__titulo">${nombreJuego}</h3>
+    <p class="text-success fw-bold">Precio: S/${precio}</p> 
+    <p class="text-success fw-bold">Stock:${stock}</p> 
+    <button  id="${idProducto}" class="cardJuego__btnAgregar">Agregar</button>
     </div>`
-    let categoria = producto.genero;
+    let categoria = genero;
     categoria =='MOBA' && categoriaMoba.prepend(article);
     categoria =='AVENTURA' && categoriaAventura.prepend(article);
     categoria =='ACCION' && categoriaAccion.prepend(article);
-    // switch (categoria) {
-    //     case 'MOBA':
-    //         categoriaMoba.prepend(article);
-    //         break;
-    //     case 'AVENTURA':
-    //         categoriaAventura.prepend(article);
-    //         break;
-    //     case 'ACCION':
-    //         categoriaAccion.prepend(article);
-    //         break;        
-    //     default:
-    //         break;
-    // }
+    
     //Asigno a cada  button de la card  un respectivo evento click    la cual va a llamar a la funcion agregarCarrito (). Esta funcion pedira por parametro el id que luego usaremos.
     const btn = document.getElementById(producto.idProducto)
     btn.addEventListener('click', ()=>{
@@ -230,14 +219,15 @@ console.log(typeof localStorage.getItem('carro'))
 const eliminarDelCarrito= (e)=>{
         
         const id = e.target.getAttribute('id')
+        console.log(id)
+        const it = carro.indexOf((productoCarro)=>{
+           
+          productoCarro.idProducto === id})
+        console.log(it)
         
-        const item = carro.find((productoCarro)=>{productoCarro.idProducto == id})
+     
         
-        
-        console.log(item)
-        const indice = carro.indexOf(item);
-        
-        carro.splice(indice, 1)
+        carro.splice(it, 1)
         actualizarCarrito();
 }
 
@@ -268,13 +258,14 @@ vaciarCarrito.addEventListener('click',()=>{
     carro.map((productoCarro)=>{
      const tr = document.createElement('tr');
      tr.classList.add('juego');
+     const {precio,nombreJuego,idProducto,img, cantidad}= productoCarro;
      tr.innerHTML = `
      
-     <th scope="row"><img src="${productoCarro.img}" alt="${productoCarro.nombreJuego}" width='400px'></th>
-     <td><p>${productoCarro.nombreJuego}</p></td>
-     <td><p>${productoCarro.cantidad}</p></td>
-     <td><p>${productoCarro.precio}</p></td>
-     <td><button type="button" class="btn-close eliminar" id="${productoCarro.idProducto}"></button></td>
+     <th scope="row"><img src="${img}" alt="${nombreJuego}" width='400px'></th>
+     <td><p>${nombreJuego}</p></td>
+     <td><p>${cantidad}</p></td>
+     <td><p>${precio}</p></td>
+     <td><button type="button" class="btn-close eliminar" id="${idProducto}"></button></td>
    `
    carritoCont.appendChild(tr)
    localStorage.setItem('carro', JSON.stringify(carro));
