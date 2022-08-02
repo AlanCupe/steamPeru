@@ -129,8 +129,11 @@ const juego15 = new juego(
 );
 //PUSHEANDO A SU ARREGLO RESPECTIVO
 aventura.push(juego11, juego12, juego13, juego14, juego15);
+ 
 
-juegoAlmacenado = [...accion, ...moba, ...aventura];
+console.log(juegoAlmacenado)
+
+
 
 console.log(typeof localStorage.getItem('carro'))
 
@@ -141,20 +144,20 @@ console.log(typeof localStorage.getItem('carro'))
     const precioTotal = document.getElementById('precioTotal');
     
     document.addEventListener('DOMContentLoaded',()=>{
-     
-      
-    
-
-
-        typeof localStorage.getItem('carro')=='string' ?traerLocalStorage()  : console.log('No se pudo traer el LocalStorage')
+             typeof localStorage.getItem('carro')=='string' ?traerLocalStorage()  : console.log('No se pudo traer el LocalStorage')
     })
+
+
+
     const traerLocalStorage= ()=>{
       carro=JSON.parse(localStorage.getItem('carro')); 
       actualizarCarrito()
     }
     
 //reccore mi array de juegos Almacenados y por cada iteracion va a crearme  una card con las propiedades de cada 1 de ellos. Luego cada card creada la adjunto a su respectiva seccion dependiendo su categoria o genero.
-   juegoAlmacenado.map((producto) =>{
+const build=(productos)=>{
+  
+  productos.map((producto) =>{
 
     const article = document.createElement('article');
     article.classList.add('juego')
@@ -184,7 +187,20 @@ console.log(typeof localStorage.getItem('carro'))
     })
    })
    
+}
+const traerDeJSON = () => {
+  fetch('./script/productos.json')
  
+  .then(productos => productos.json())
+  .then(juegos => {
+
+    build(juegos);
+    
+      })
+
+
+}
+traerDeJSON();
 //
 
    
@@ -218,16 +234,14 @@ console.log(typeof localStorage.getItem('carro'))
 
 const eliminarDelCarrito= (e)=>{
         
-        const id = e.target.getAttribute('id')
-        console.log(id)
-        const it = carro.indexOf((productoCarro)=>{
-           
-          productoCarro.idProducto === id})
-        console.log(it)
-        
-     
-        
-        carro.splice(it, 1)
+        const idObtenido = e.target.getAttribute('id')
+        console.log(typeof idObtenido)
+        const busqueda = carro.findIndex((productoCarro) =>{
+        productoCarro.idProducto == idObtenido  
+        console.log(productoCarro.id)
+        }) 
+        console.log(busqueda);
+        carro.splice(busqueda, 1)
         actualizarCarrito();
 }
 
