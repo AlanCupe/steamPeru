@@ -131,7 +131,7 @@ const juego15 = new juego(
 aventura.push(juego11, juego12, juego13, juego14, juego15);
  
 
-console.log(juegoAlmacenado)
+
 
 
 
@@ -156,8 +156,8 @@ console.log(typeof localStorage.getItem('carro'))
     
 //reccore mi array de juegos Almacenados y por cada iteracion va a crearme  una card con las propiedades de cada 1 de ellos. Luego cada card creada la adjunto a su respectiva seccion dependiendo su categoria o genero.
 const build=(productos)=>{
-  
-  productos.map((producto) =>{
+  juegoAlmacenado = [...productos]
+  juegoAlmacenado.map((producto) =>{
 
     const article = document.createElement('article');
     article.classList.add('juego')
@@ -188,6 +188,7 @@ const build=(productos)=>{
    })
    
 }
+
 const traerDeJSON = () => {
   fetch('./script/productos.json')
  
@@ -201,6 +202,8 @@ const traerDeJSON = () => {
 
 }
 traerDeJSON();
+
+
 //
 
    
@@ -214,7 +217,7 @@ traerDeJSON();
                 if (productoCarro.idProducto ==id){ productoCarro.cantidad++}
             })
        }else{
-        
+        console.log(juegoAlmacenado);
         const item = juegoAlmacenado.find(juego=>juego.idProducto === id )
         carro.push(item);
          }
