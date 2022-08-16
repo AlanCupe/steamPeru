@@ -3,145 +3,15 @@ const aventura = [];
 const moba = [];
 let carro = [];
 let juegoAlmacenado = [];
-
-
-//CREACION DE LA CLASE JUEGO
-class juego {
-  constructor(precio, nombreJuego, idProducto, genero, img, stock) {
-    this.precio = precio;
-    this.nombreJuego = nombreJuego;
-    this.idProducto = idProducto;
-    this.genero = genero;
-    this.img = img;
-    this.stock=stock;
-    this.cantidad = 1;
-  }
-
-  //CALCULANDO IGV DEL JUEVO A VENDER
-  calcularTotal(igv) {
-    this.igv = this.precio * igv;
-    this.total = this.precio + this.igv;
-    return this.total;
-  }
-}
-// ARREGLOS A USAR PARA ALAMACENAR LOS JUEGOS POR CATEGORIA
-
-const juego1 = new juego(
-  600,
-  "Moster hunter rise",
-  "moster",
-  "ACCION",
-  "assets/img/accion/mosterHunterRises.jpg",
-  100
-);
-const juego2 = new juego(
-  42,
-  "Neon White",
-  "neon",
-  "ACCION",
-  "assets/img/accion/neonWhite.avif",100
-);
-const juego3 = new juego(
-  30,
-  "Counter strike",
-  "counter",
-  "ACCION",
-  "assets/img/accion/counterStrike.png",100
-);
-const juego4 = new juego(
-  140,
-  "Hife life",
-  "hife",
-  "ACCION",
-  "assets/img/accion/hifeLife.jpg",100
-);
-const juego5 = new juego(
-  30,
-  "Lost ark",
-  "lost",
-  "ACCION",
-  "assets/img/accion/lostArk.webp",100
-);
-//PUSHEANDO A SU ARREGLO RESPECTIVO
-accion.push(juego1, juego2, juego3, juego4, juego5);
-
-const juego6 = new juego( 30,"Dota 2","dota2","MOBA","assets/img/moba/dota2.jpg",100);
-const juego7 = new juego(15,"League of legends","league","MOBA","assets/img/moba/leagueOfLeguends.jpg",100
-);
-const juego8 = new juego(
-  22,
-  "Paladins",
-  "paladins",
-  "MOBA",
-  "assets/img/moba/paladins.jpg",100
-);
-const juego9 = new juego(
-  35,
-  "Lords mobile",
-  "lords",
-  "MOBA",
-  "assets/img/moba/lordsMobile.jpg",100
-);
-const juego10 = new juego(
-  34,
-  "Smite",
-  "smite",
-  "MOBA",
-  "assets/img/moba/smite.jpg",100
-);
-//PUSHEANDO A SU ARREGLO RESPECTIVO
-moba.push(juego6, juego7, juego8, juego9, juego10);
-
-const juego11 = new juego(
-  32,
-  "Apex Legends",
-  "apex",
-  "AVENTURA",
-  "assets/img/aventura/apex-legends.jpg",100
-);
-const juego12 = new juego(
-  145,
-  "Destiny 2",
-  "destiny",
-  "AVENTURA",
-  "assets/img/aventura/destiny2.jpg",100
-);
-const juego13 = new juego(
-  36,
-  "Raft",
-  "raft",
-  "AVENTURA",
-  "assets/img/aventura/raft.jpg",100
-);
-const juego14 = new juego(
-  130,
-  "God of war",
-  "god",
-  "AVENTURA",
-  "assets/img/aventura/godofWar.jpeg",100
-);
-const juego15 = new juego(
-  20,
-  "Forza horizon 5",
-  "forza",
-  "AVENTURA",
-  "assets/img/aventura/forzaHorizon.jpg",100
-);
-//PUSHEANDO A SU ARREGLO RESPECTIVO
-aventura.push(juego11, juego12, juego13, juego14, juego15);
- 
-
-
-
+let idObtenido='';
 
 
 console.log(typeof localStorage.getItem('carro'))
 
     //obtengo los ids de los contenedores para poder usarlos luego
-    const categoriaMoba = document.getElementById('juegosMoba');
-    const categoriaAccion = document.getElementById('juegosAccion');
-    const categoriaAventura = document.getElementById('juegosAventura');
+    
     const precioTotal = document.getElementById('precioTotal');
+    const juegosAll = document.querySelector('.juegosAll');
     
     document.addEventListener('DOMContentLoaded',()=>{
              typeof localStorage.getItem('carro')=='string' ?traerLocalStorage()  : console.log('No se pudo traer el LocalStorage')
@@ -156,7 +26,35 @@ console.log(typeof localStorage.getItem('carro'))
     
 //reccore mi array de juegos Almacenados y por cada iteracion va a crearme  una card con las propiedades de cada 1 de ellos. Luego cada card creada la adjunto a su respectiva seccion dependiendo su categoria o genero.
 const build=(productos)=>{
+  const tituloMoba = document.createElement('h2');
+   tituloMoba.classList.add('categoria') ;
+   tituloMoba.innerText='Categoría - Moba';
+  const seccionMoba =document.createElement('section');
+   seccionMoba.classList.add('styleGame');
+   seccionMoba.setAttribute("id","juegosMoba");
+  const tituloAccion = document.createElement('h2');
+  tituloAccion.classList.add('categoria');
+  tituloAccion.innerText='Categoría - Acción';
+  const seccioAccion =document.createElement('section');
+  seccioAccion.classList.add('styleGame');
+  seccioAccion.setAttribute("id","juegosAccion");
+  const tituloAventura = document.createElement('h2');
+  tituloAventura.classList.add('categoria');
+  tituloAventura.innerText='Categoría - Aventura';
+  const seccionAventura =document.createElement('section');
+  seccionAventura.classList.add('styleGame');
+  seccionAventura.setAttribute("id","juegosAventura");
+
+  juegosAll.append(tituloMoba,seccionMoba,tituloAccion,seccioAccion,tituloAventura,seccionAventura);
+  
+  const categoriaMoba = document.getElementById('juegosMoba');
+  const categoriaAccion = document.getElementById('juegosAccion');
+  const categoriaAventura = document.getElementById('juegosAventura');
+ 
+  
+
   juegoAlmacenado = [...productos]
+
   juegoAlmacenado.map((producto) =>{
 
     const article = document.createElement('article');
@@ -214,10 +112,11 @@ traerDeJSON();
        
        if(existe){
             carro.map(productoCarro => {
-                if (productoCarro.idProducto ==id){ productoCarro.cantidad++}
+                if (productoCarro.idProducto ==id){ productoCarro.cantidad++;
+                  productoCarro.precio += productoCarro.precio}
             })
        }else{
-        console.log(juegoAlmacenado);
+        
         const item = juegoAlmacenado.find(juego=>juego.idProducto === id )
         carro.push(item);
          }
@@ -237,14 +136,12 @@ traerDeJSON();
 
 const eliminarDelCarrito= (e)=>{
         
-        const idObtenido = e.target.getAttribute('id')
-        console.log(typeof idObtenido)
-        const busqueda = carro.findIndex((productoCarro) =>{
-        productoCarro.idProducto == idObtenido  
-        console.log(productoCarro.id)
-        }) 
-        console.log(busqueda);
-        carro.splice(busqueda, 1)
+        idObtenido = e.target.getAttribute('id');
+        console.log(carro);
+        const busqueda = carro.findIndex(producto=>producto.idProducto==idObtenido)
+        carro.splice(busqueda,1);
+       
+        
         actualizarCarrito();
 }
 
@@ -296,8 +193,59 @@ vaciarCarrito.addEventListener('click',()=>{
        contador.innerText = carro.length;
        precioTotal.innerText = 'S/ '+carro.reduce((acumulador,producto)=>acumulador + producto.precio, 0)
 }
+const buildFiltrados = (arreglo) =>{
+  juegosAll.innerHTML="";
+  const section = document.createElement('section');
+  section.classList.add('styleGame')
+  
+  arreglo.map(juego =>{
+    const {nombreJuego,img, stock,idProducto,precio }= juego
+    const article =document.createElement("article")
+    article.innerHTML = ` <div class="cardJuego">
+    <img class="cardJuego__img" src="${img}" alt="${nombreJuego}">
+    <h3 class="cardJuego__titulo">${nombreJuego}</h3>
+    <p class="text-success fw-bold">Precio: S/${precio}</p> 
+    <p class="text-success fw-bold">Stock:${stock}</p> 
+    <button  id="${idProducto}" class="cardJuego__btnAgregar">Agregar</button>
+    </div>`
+    section.append(article)
+    juegosAll.append(section);
+    const btn = document.getElementById(idProducto)
+    btn.addEventListener('click', ()=>{
+        
+       agregarCarrito(idProducto)
+      
+    })
+  })
+  
+
+}
 
 
+const filtrarJuegos =()=>{
+      const valueFilter = (filtro.value.trim().replace(" ", "")).toLowerCase();
+
+      const filtroJuegos = juegoAlmacenado.filter(juego => {
+          const {nombreJuego}=juego
+        return (nombreJuego.replace(" ", "").toLowerCase()).includes(valueFilter) ==true;
+        
+        
+        
+      })
+      
+      valueFilter.length >0 && buildFiltrados(filtroJuegos);
+      valueFilter.length <= 0 && (juegosAll.innerHTML="");
+      valueFilter.length <= 0 && traerDeJSON();
+      console.log(typeof(valueFilter))
+      
 
 
+      
+      // const lista = juegoAlmacenado.filter(juego=> juego.nombreJuego = "valueFilter" )
+      console.log(valueFilter);
+}       
+
+
+const filtro = document.querySelector('#search');
+  filtro.addEventListener('input', filtrarJuegos);
 

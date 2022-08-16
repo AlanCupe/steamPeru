@@ -78,6 +78,15 @@
   width: 50px;
 }
 
+footer {
+  background: rgb(12, 68, 129);
+  background: linear-gradient(90deg, rgb(12, 68, 129) 43%, rgb(6, 5, 23) 89%);
+  padding-top: 4px;
+  padding-bottom: 4px;
+  font-weight: bold;
+  color: white;
+}
+
 * {
   margin: 0px;
   padding: 0px;
