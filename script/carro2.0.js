@@ -171,7 +171,7 @@ const actualizarCarrito = () => {
 
 
   carritoCont.innerHTML = '';
-  carro.map((productoCarro) => {
+  carro.map(productoCarro => {
     const tr = document.createElement('tr');
     tr.classList.add('juego');
     const { precio, nombreJuego, idProducto, img, cantidad } = productoCarro;
