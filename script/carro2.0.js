@@ -59,11 +59,11 @@ const build = (productos) => {
 
     const article = document.createElement('article');
     article.classList.add('juego')
-    article.setAttribute("data-aos", "fade-down")
-    article.setAttribute("data-aos-easing", "linear")
-    article.setAttribute("data-aos-duration", "700")
+    // article.setAttribute("data-aos", "fade-down")
+    // article.setAttribute("data-aos-easing", "linear")
+    // article.setAttribute("data-aos-duration", "700")
 
-    const { precio, nombreJuego, idProducto, genero, img, stock } = producto
+    const { precio, nombreJuego, idProducto, genero, img, stock } = producto;
     article.innerHTML = ` <div class="cardJuego">
     <img class="cardJuego__img" src="${img}" alt="${nombreJuego}">
     <h3 class="cardJuego__titulo">${nombreJuego}</h3>
