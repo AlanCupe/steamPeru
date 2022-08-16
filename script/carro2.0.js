@@ -6,7 +6,7 @@ let juegoAlmacenado = [];
 let idObtenido = '';
 
 
-console.log(typeof localStorage.getItem('carro'))
+
 
 //obtengo los ids de los contenedores para poder usarlos luego
 
